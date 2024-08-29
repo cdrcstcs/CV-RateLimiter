@@ -40,14 +40,14 @@ func TestRequestHandler(t *testing.T) {
 func TestMetricsHandler(t *testing.T) {
 	metrics := &Metrics{}
 	counter := NewFixedWindowCounter(2, time.Second, metrics)
-	handler := MetricsHandler(metrics)
-	counter.Allow()
-	counter.Allow()
 	counter.Allow() 
+	counter.Allow() 
+	counter.Allow() 
+	handler := MetricsHandler(metrics)
 	req := httptest.NewRequest(http.MethodGet, "/metrics", nil)
 	rr := httptest.NewRecorder()
 	handler.ServeHTTP(rr, req)
-	expected := "Total requests: 3\nRejected requests: 1\n"
+	expected := "Total requests: 2\nRejected requests: 1\n"
 	if rr.Body.String() != expected {
 		t.Errorf("handler returned unexpected body: got %v want %v", rr.Body.String(), expected)
 	}

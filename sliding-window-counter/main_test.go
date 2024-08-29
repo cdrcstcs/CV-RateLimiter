@@ -39,9 +39,9 @@ func TestRequestHandler(t *testing.T) {
 }
 func TestMetricsHandler(t *testing.T) {
 	metrics := &Metrics{}
-	counter := NewSlidingWindowCounter(2, time.Minute, 2, time.Second, metrics)
+	counter := NewSlidingWindowCounter(2, 10*time.Minute, 2, 5*time.Second, metrics)
 	handler := MetricsHandler(metrics)
-	for i := 0; i < 3; i++ {
+	for i := 0; i < 4; i++ {
 		counter.Allow()
 	}
 	req := httptest.NewRequest(http.MethodGet, "/metrics", nil)

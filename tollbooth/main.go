@@ -3,7 +3,6 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
-
 	tollbooth "github.com/didip/tollbooth/v7"
 )
 type Message struct {

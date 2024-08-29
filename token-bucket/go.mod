@@ -1,5 +1,3 @@
-module github.com/akhilsharma90/go-ratelimit/token-bucket
+module token-bucket
 
-go 1.20
-
-require golang.org/x/time v0.3.0
+go 1.21.5

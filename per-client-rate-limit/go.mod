@@ -1,5 +1,5 @@
-module github.com/akhilsharma90/go-ratelimit/per-client-rate-limit
+module per-client-rate-limit
 
-go 1.20
+go 1.21.5
 
-require golang.org/x/time v0.3.0
+require golang.org/x/time v0.6.0 
